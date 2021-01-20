@@ -7,7 +7,7 @@ module.exports = {
       .plugin('html')
       .tap(args => {
         // 修改 title
-        args[0].title= 'Live'
+        args[0].title= 'PIM'
         return args
       })
   },
