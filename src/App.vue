@@ -6,6 +6,16 @@
   <router-view />
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      radio: "1"
+    };
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
