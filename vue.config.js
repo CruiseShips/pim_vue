@@ -19,7 +19,7 @@ module.exports = {
     hotOnly: false,
     proxy: {
         '/': {
-            target: 'https://www.lemon1234.com', //API服务器的地址
+            target: 'https://1', //API服务器的地址
             changeOrigin: true,
             pathRewrite: {
                 '^/api': ''
