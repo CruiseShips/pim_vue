@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1>123123</h1>
-  </div>
+  <router-view />
 </template>
 
 <script></script>
 
-<style></style>
+<style scoped>
+
+</style>

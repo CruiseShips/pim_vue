@@ -1,24 +1,5 @@
 # pim
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 项目启动
+    项目启动方式：npm run dev
+    如果想要修改，可以修改 package.json 中的 scripts
