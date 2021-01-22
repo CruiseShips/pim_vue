@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   outputDir: "dist", //build输出目录
   assetsDir: "assets", //静态资源目录（js, css, img）
@@ -20,8 +22,16 @@ module.exports = {
         target: "https://localhost:8080/", //API服务器的地址
         changeOrigin: true,
         pathRewrite: {
-          "^/api": ""
+          "^/admin": ""
         }
+      }
+    }
+  },
+  // 加上这个就可以在项目中使用 @
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": path.resolve("src")
       }
     }
   }

@@ -6,7 +6,11 @@ import store from "./store";
 import ElementPlus from "element-plus";
 import "element-plus/lib/theme-chalk/index.css";
 
+let axios = require("axios");
+
 const app = createApp(App);
+
+app.config.productionTip = false;
 
 // 缓存
 app.use(store);
