@@ -19,7 +19,12 @@ export default {
   },
   methods: {
     login() {
-
+      const loginForm = {
+        username: this.username,
+        passowrd: this.password
+      };
+      console.log(loginForm);
+      this.$router.replace({path: '/index'})
     }
   }
 };

@@ -19,7 +19,7 @@ module.exports = {
     hotOnly: false,
     proxy: {
       "/": {
-        target: "https://localhost:8080/", //API服务器的地址
+        target: "http://localhost:8080/", //API服务器的地址
         changeOrigin: true,
         pathRewrite: {
           "^/admin": ""
