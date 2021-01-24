@@ -16,16 +16,7 @@ module.exports = {
     host: "localhost",
     port: 80,
     https: false,
-    hotOnly: false,
-    proxy: {
-      "/": {
-        target: "http://localhost:8080/", //API服务器的地址
-        changeOrigin: true,
-        pathRewrite: {
-          "^/admin": ""
-        }
-      }
-    }
+    hotOnly: false
   },
   // 加上这个就可以在项目中使用 @
   configureWebpack: {
