@@ -41,14 +41,17 @@ export default {
   },
   methods: {
     login() {
-      if (!this.username) {
+      let username = this.username;
+      let password = this.password;
+
+      if (!username) {
         this.$message({
           message: "请输入账号",
           type: "error"
         });
         return;
       }
-      if (!this.password) {
+      if (!password) {
         this.$message({
           message: "请输入密码",
           type: "error"
@@ -56,15 +59,15 @@ export default {
         return;
       }
 
-      let username = this.username;
-      let password = this.password;
       this.$axios
         .post("/login", {
           username,
           password
         })
         .then(response => {
+          console.log(response);
           if (response.data.code === 200) {
+            console.log(response)
             let token = response.data.data;
             // 将 Token 存入到全局缓存中
             window.localStorage.setItem("token", token);

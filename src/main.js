@@ -10,7 +10,7 @@ import axios from "axios";
 
 const app = createApp(App);
 
-axios.defaults.baseURL = "http://localhost:8080/admin";
+axios.defaults.baseURL = "http://localhost:8080/";
 // Vue 3 需要使用这个方式进行挂载
 app.config.globalProperties.$axios = axios;
 app.config.productionTip = false;
