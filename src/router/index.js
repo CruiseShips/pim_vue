@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/Login";
-import Index from "@/views/Index";
+import AppIndex from "@/views/AppIndex";
 import App from "@/App";
 
 const routes = [
@@ -14,21 +14,21 @@ const routes = [
     component: Login
   },
   {
-    path: '/app',
-      name: 'App',
-      component: App,
-      redirect: '/index',
-      children: [
-        {
-          path: '/index',
-          name: 'Index',
-          component: Index,
-          meta: {
-            requireAuth: true
-          }
+    path: "/app",
+    name: "App",
+    component: App,
+    redirect: "/appIndex",
+    children: [
+      {
+        path: "/appIndex",
+        name: "AppIndex",
+        component: AppIndex,
+        meta: {
+          requireAuth: true
         }
-      ]
-  },
+      }
+    ]
+  }
 ];
 
 const router = createRouter({
