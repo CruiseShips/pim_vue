@@ -26,7 +26,7 @@ import Main from "@/components/sys/Main";
 import Header from "@/components/sys/Header";
 
 export default {
-  name: "Index",
+  name: "AppIndex",
   components: {
     Menu,
     Footer,
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .el-header,
 .el-footer {
   background-color: #B3C0D1;

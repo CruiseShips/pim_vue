@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/Login";
-import AppIndex from "@/views/AppIndex";
-import App from "@/App";
+import Home from "@/views/Home";
+import AppIndex from "@/components/sys/AppIndex";
 
 const routes = [
   {
@@ -14,9 +14,9 @@ const routes = [
     component: Login
   },
   {
-    path: "/app",
-    name: "App",
-    component: App,
+    path: "/home",
+    name: "Home",
+    component: Home,
     redirect: "/appIndex",
     children: [
       {

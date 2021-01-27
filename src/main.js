@@ -22,7 +22,7 @@ router.beforeEach((to, from, next) => {
     from.path ? next({ path: from.path }) : next("/"); //如果上级也未匹配到路由则跳转主页面，如果上级能匹配到则转上级路由
   }
   if (to.meta.requireAuth) {
-    if (window.localStorage.getItem("token")) {
+    if (window.sessionStorage.getItem("token")) {
       next();
     } else {
       next({

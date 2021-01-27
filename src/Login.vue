@@ -70,7 +70,7 @@ export default {
             console.log(response)
             let token = response.data.data;
             // 将 Token 存入到全局缓存中
-            window.localStorage.setItem("token", token);
+            window.sessionStorage.setItem("token", token);
             // 跳转到页面
             this.$router.replace({ path: "/appIndex" });
           } else {
