@@ -59,12 +59,7 @@ export default {
         return;
       }
 
-      this.$axios
-        .post("/login", {
-          username,
-          password
-        })
-        .then(response => {
+      this.$axios.post("/login", {username, password}).then(response => {
           console.log(response);
           if (response.data.code === 200) {
             console.log(response)
