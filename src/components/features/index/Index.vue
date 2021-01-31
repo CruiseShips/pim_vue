@@ -1,11 +1,13 @@
 <template>
-  <router-view />
+  <div>
+    index123123
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Main"
-};
+name: "Index"
+}
 </script>
 
 <style scoped>

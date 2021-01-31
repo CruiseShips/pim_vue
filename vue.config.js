@@ -16,7 +16,17 @@ module.exports = {
     host: "localhost",
     port: 80,
     https: false,
-    hotOnly: false
+    hotOnly: false,
+    proxy: {
+      "/admin": {
+        // 请求称号
+        target: "http://127.0.0.1:8080", //请求的接口
+        changeOrigin: true, // 允许跨域
+        pathRewrite: {
+          "^/admin": "/admin"
+        }
+      }
+    }
   },
   // 加上这个就可以在项目中使用 @
   configureWebpack: {

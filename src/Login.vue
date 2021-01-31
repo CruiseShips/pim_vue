@@ -59,15 +59,8 @@ export default {
         return;
       }
 
-      this.$axios
-        .post("/login", {
-          username,
-          password
-        })
-        .then(response => {
-          console.log(response);
+      this.$axios.post("/admin/login", { username, password}).then(response => {
           if (response.data.code === 200) {
-            console.log(response)
             let token = response.data.data;
             // 将 Token 存入到全局缓存中
             window.sessionStorage.setItem("token", token);
