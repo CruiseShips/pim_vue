@@ -5,6 +5,7 @@ import AppIndex from "@/components/sys/AppIndex";
 import Index from "@/components/features/index/Index";
 
 import User from "@/components/features/user/User";
+import Bank from "@/components/features/user/Bank";
 
 const routes = [
   {
@@ -41,6 +42,14 @@ const routes = [
         path: "/user",
         component: User,
         name: "User",
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: "/bank",
+        component: Bank,
+        name: "Bank",
         meta: {
           requireAuth: true
         }

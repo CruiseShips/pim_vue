@@ -15,15 +15,27 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" icon="el-icon-search"></el-button>
+        <el-button @click="search" type="primary" icon="el-icon-search"></el-button>
       </el-col>
     </el-row>
   </el-card>
 
-  <el-table height="250" border style="width: 100%">
-    <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-    <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-    <el-table-column prop="address" label="地址"> </el-table-column>
+  <el-table :data="tableList" :row-class-name="tableRowClassName" height="250" border style="width: 100%; margin-top: 50px;">
+    <el-table-column type="index" label="序号" width="60" />
+    <el-table-column prop="name" label="昵称" width="130" />
+    <el-table-column prop="photo" label="头像" width="180" />
+    <el-table-column prop="email" label="邮箱" width="180" />
+    <el-table-column prop="phoneNum" label="电话号" width="130" />
+    <el-table-column prop="openId" label="openId" width="180" />
+    <el-table-column prop="createDt" label="创建日期" width="180" />
+    <el-table-column prop="spaceSize" label="空间使用" width="100" />
+    <el-table-column prop="isMembers" label="是否是会员" width="100" />
+    <el-table-column label="操作">
+      <template #default="scope">
+        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+        <el-button type="text" size="small">编辑</el-button>
+      </template>
+    </el-table-column>
   </el-table>
   <!-- 分页 -->
   <el-pagination
@@ -43,12 +55,13 @@ export default {
   data() {
     return {
       queryInfo: {
-        name: "2",
-        phoneNum: "333",
+        name: "",
+        phoneNum: "",
         currentPage: 1,
         total: 0,
         pageSize: 20
-      }
+      },
+      tableList: []
     };
   },
   created() {
@@ -65,11 +78,25 @@ export default {
       this.$axios
         .post("/admin/user/queryUserList", queryInfo)
         .then(response => {
-          console.log(response);
+          this.tableList = response.data.data.records;
+          this.queryInfo.total = response.data.data.total;
+          this.queryInfo.currentPage = response.data.data.current;
         });
     },
     handleCurrentChange(val) {
-
+      this.queryInfo.currentPage = val;
+      this.getUserList();
+    },
+    tableRowClassName({row, rowIndex}) {
+      if (row.gender === 1) {
+        return 'warning-row';
+      } else if (row.gender === 2) {
+        return 'success-row';
+      }
+      return '';
+    },
+    search() {
+      this.getUserList();
     }
   }
 };
@@ -78,5 +105,12 @@ export default {
 <style scoped>
 .el-pagination {
   margin-top: 15px;
+}
+.el-table .warning-row {
+  background: oldlace;
+}
+
+.el-table .success-row {
+  background: #f0f9eb;
 }
 </style>
