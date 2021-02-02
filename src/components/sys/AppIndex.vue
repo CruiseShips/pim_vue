@@ -42,11 +42,17 @@ export default {
 .home-container {
   height: 100%;
 }
-.el-header,
+.el-header {
+  background-color: #f0f9eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
 .el-footer {
-  background-color: #B3C0D1;
+  background-color: antiquewhite;
   color: #333;
-  text-align: center;
+  text-align: left;
   line-height: 60px;
 }
 

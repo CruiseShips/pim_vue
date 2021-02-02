@@ -22,7 +22,7 @@
         <el-button
           type="primary"
           style="width: 100%;background: #505458;border: none"
-          @keyup.enter="login"
+          @click="login"
           >登录</el-button
         >
       </el-form-item>
