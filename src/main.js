@@ -38,6 +38,7 @@ axios.interceptors.response.use(
       });
     }
     if (res.code === 4001 || res.code === 4002 || res.data === 4000) {
+      window.sessionStorage.clear();
       Message({
         message: "登录超时，请从新登录",
         type: "error"
