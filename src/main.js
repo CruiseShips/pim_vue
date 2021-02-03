@@ -37,11 +37,22 @@ axios.interceptors.response.use(
         type: "error"
       });
     }
+    if (res.code === 4001 || res.code === 4002 || res.data === 4000) {
+      Message({
+        message: "登录超时，请从新登录",
+        type: "error"
+      });
+      throw new Error("登录超时，请从新登录，状态码：" + res.code);
+    }
+    if (res.code === 401) {
+      // 等待实现
+    }
     return res;
   },
   error => {
+    const res = error.data;
     this.$message({
-      message: "系统错误，请联系管理员!" + error.response,
+      message: "系统错误，请联系管理员!" + res,
       type: "error"
     });
   }
