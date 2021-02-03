@@ -9,6 +9,7 @@ import "dayjs/locale/zh-cn";
 import locale from "element-plus/lib/locale/lang/zh-cn";
 
 import axios from "axios";
+import Message from "element-plus/lib/el-message";
 
 const app = createApp(App);
 
@@ -25,6 +26,26 @@ axios.interceptors.request.use(config => {
   }
   return config;
 });
+
+// 统一返回拦截器，用于判断是否登录，或者登录超时等，页面跳转
+axios.interceptors.response.use(
+  response => {
+    const res = response.data;
+    if (res.code === 500) {
+      Message({
+        message: res.msg,
+        type: "error"
+      });
+    }
+    return res;
+  },
+  error => {
+    this.$message({
+      message: "系统错误，请联系管理员!" + error.response,
+      type: "error"
+    });
+  }
+);
 
 // 导航守卫
 router.beforeEach((to, from, next) => {

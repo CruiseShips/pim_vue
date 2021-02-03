@@ -59,27 +59,16 @@ export default {
         return;
       }
 
-      this.$axios.post("/admin/login", { username, password}).then(response => {
-          if (response.data.code === 200) {
-            let token = response.data.data;
+      this.$axios
+        .post("/admin/login", { username, password })
+        .then(response => {
+          if (response.code && response.code === 200) {
+            let token = response.data;
             // 将 Token 存入到全局缓存中
             window.sessionStorage.setItem("token", token);
             // 跳转到页面
             this.$router.replace({ path: "/appIndex" });
-          } else {
-            // 提示报错信息
-            this.$message({
-              message: response.data.msg,
-              type: "error"
-            });
           }
-        })
-        .catch(failResponse => {
-          console.log(failResponse);
-          this.$message({
-            message: "系统错误",
-            type: "error"
-          });
         });
     }
   }
