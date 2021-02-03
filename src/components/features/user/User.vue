@@ -20,7 +20,7 @@
     </el-row>
   </el-card>
 
-  <el-table :data="tableList" :row-class-name="tableRowClassName" height="250" border style="width: 100%; margin-top: 50px;">
+  <el-table :data="tableList" :row-class-name="tableRowClassName" height="600" border style="width: 100%; margin-top: 50px;">
     <el-table-column type="index" label="序号" width="60" />
     <el-table-column prop="name" label="昵称" width="130" />
     <el-table-column prop="photo" label="头像" width="180" />
@@ -89,11 +89,12 @@ export default {
     },
     tableRowClassName({row, rowIndex}) {
       if (row.gender === 1) {
-        return 'warning-row';
+        return "warning-row";
       } else if (row.gender === 2) {
-        return 'success-row';
+        return "success-row";
       }
-      return '';
+      console.log(rowIndex);
+      return "";
     },
     search() {
       this.getUserList();

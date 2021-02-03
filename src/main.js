@@ -6,7 +6,7 @@ import store from "./store";
 import ElementPlus from "element-plus";
 import "element-plus/lib/theme-chalk/index.css";
 import "dayjs/locale/zh-cn";
-import locale from "element-plus/lib/locale/lang/zh-cn"
+import locale from "element-plus/lib/locale/lang/zh-cn";
 
 import axios from "axios";
 
@@ -20,7 +20,7 @@ app.config.productionTip = false;
 // 给每一个中 header 添加我们的token
 axios.interceptors.request.use(config => {
   const token = window.sessionStorage.getItem("token");
-  if(token != null) {
+  if (token != null) {
     config.headers.token = token;
   }
   return config;

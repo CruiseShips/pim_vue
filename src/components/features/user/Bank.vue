@@ -16,7 +16,7 @@
     </el-row>
   </el-card>
 
-  <el-table :data="tableList" height="250" border style="width: 100%; margin-top: 50px;">
+  <el-table :data="tableList" height="600" border style="width: 100%; margin-top: 50px;">
     <el-table-column type="index" label="序号" />
     <el-table-column prop="username" label="用户昵称" />
     <el-table-column prop="bankAll" label="账号仓库数量" />
