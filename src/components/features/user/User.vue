@@ -78,9 +78,9 @@ export default {
       this.$axios
         .post("/admin/user/queryUserList", queryInfo)
         .then(response => {
-          this.tableList = response.data.data.records;
-          this.queryInfo.total = response.data.data.total;
-          this.queryInfo.currentPage = response.data.data.current;
+          this.tableList = response.data.records;
+          this.queryInfo.total = response.data.total;
+          this.queryInfo.currentPage = response.data.current;
         });
     },
     handleCurrentChange(val) {
@@ -93,7 +93,6 @@ export default {
       } else if (row.gender === 2) {
         return "success-row";
       }
-      console.log(rowIndex);
       return "";
     },
     search() {

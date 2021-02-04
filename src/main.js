@@ -51,9 +51,8 @@ axios.interceptors.response.use(
     return res;
   },
   error => {
-    const res = error.data;
-    this.$message({
-      message: "系统错误，请联系管理员!" + res,
+    Message({
+      message: "系统错误，请联系管理员!" + error,
       type: "error"
     });
   }
