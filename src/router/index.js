@@ -4,8 +4,12 @@ import AppIndex from "@/components/sys/AppIndex";
 
 import Index from "@/components/features/index/Index";
 
+// 用户
 import User from "@/components/features/user/User";
 import Bank from "@/components/features/user/Bank";
+
+// 管理员
+import Admin from "@/components/features/admin/Admin";
 
 const routes = [
   {
@@ -50,6 +54,14 @@ const routes = [
         path: "/bank",
         component: Bank,
         name: "Bank",
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: "/admin",
+        component: Admin,
+        name: "Admin",
         meta: {
           requireAuth: true
         }

@@ -27,6 +27,9 @@ axios.interceptors.request.use(config => {
   return config;
 });
 
+// axios 全局超时时间
+axios.defaults.timeout = 2000;
+
 // 统一返回拦截器，用于判断是否登录，或者登录超时等，页面跳转
 axios.interceptors.response.use(
   response => {

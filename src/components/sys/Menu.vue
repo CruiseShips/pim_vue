@@ -21,11 +21,11 @@
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
-    <el-menu-item index="3">
-      <i class="el-icon-menu"></i>
-      <template #title>导航二</template>
+    <el-menu-item index="/admin">
+      <i class="el-icon-s-custom"></i>
+      <template #title>管理员</template>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="/sys">
       <i class="el-icon-setting"></i>
       <template #title>系统配置</template>
     </el-menu-item>

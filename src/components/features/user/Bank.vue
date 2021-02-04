@@ -105,11 +105,13 @@ export default {
     handleClick(row) {
       this.drawer = true;
       this.drawerTitle = row.username + " 的账号仓库";
+      this.activeNames = [];
+      this.activeList = [];
       this.$axios
         .get("/admin/bank/queryBankInfoList?userId=" + row.userId)
         .then(response => {
           if (response.data.length > 0) {
-            this.activeNames = ["1"];
+            this.activeNames = [response.data[0].id];
             this.activeList = response.data;
           }
         });
