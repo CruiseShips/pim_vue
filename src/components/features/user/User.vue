@@ -15,7 +15,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button @click="search" type="primary" icon="el-icon-search"></el-button>
+        <el-button @click="search" type="primary" icon="el-icon-search">搜索</el-button>
       </el-col>
     </el-row>
   </el-card>
@@ -46,6 +46,7 @@
     :page-size="queryInfo.pageSize"
     v-model:currentPage="queryInfo.currentPage"
     @current-change="handleCurrentChange"
+    @size-change="handleSizeChange"
   ></el-pagination>
 </template>
 
@@ -74,7 +75,7 @@ export default {
         phoneNum: this.queryInfo.phoneNum,
         currentPage: this.queryInfo.currentPage,
         pageSize: this.queryInfo.pageSize
-      }
+      };
       this.$axios
         .post("/admin/user/queryUserList", queryInfo)
         .then(response => {
@@ -97,6 +98,9 @@ export default {
     },
     search() {
       this.getUserList();
+    },
+    handleSizeChange(val) {
+      this.queryInfo.pageSize = val;
     }
   }
 };

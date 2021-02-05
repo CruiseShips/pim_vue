@@ -21,7 +21,7 @@
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
-    <el-menu-item index="/admin">
+    <el-menu-item index="/manage">
       <i class="el-icon-s-custom"></i>
       <template #title>管理员</template>
     </el-menu-item>

@@ -9,7 +9,7 @@ import User from "@/components/features/user/User";
 import Bank from "@/components/features/user/Bank";
 
 // 管理员
-import Admin from "@/components/features/admin/Admin";
+import Manage from "@/components/features/manage/Manage";
 
 const routes = [
   {
@@ -59,9 +59,9 @@ const routes = [
         }
       },
       {
-        path: "/admin",
-        component: Admin,
-        name: "Admin",
+        path: "/manage",
+        component: Manage,
+        name: "Manage",
         meta: {
           requireAuth: true
         }

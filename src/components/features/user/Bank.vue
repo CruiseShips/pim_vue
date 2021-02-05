@@ -15,7 +15,7 @@
           @click="search"
           type="primary"
           icon="el-icon-search"
-        ></el-button>
+        >搜索</el-button>
       </el-col>
     </el-row>
   </el-card>
@@ -47,13 +47,19 @@
     :page-size="queryInfo.pageSize"
     v-model:currentPage="queryInfo.currentPage"
     @current-change="handleCurrentChange"
+    @size-change="handleSizeChange"
   ></el-pagination>
 
   <el-drawer :title="drawerTitle" v-model="drawer" :with-header="true">
     <el-collapse v-model="activeNames">
-      <el-collapse-item v-for="item in activeList" :key="item.id" :title="item.name + ' (' + item.createDt + ')'" :name="item.id">
+      <el-collapse-item
+        v-for="item in activeList"
+        :key="item.id"
+        :title="item.name + ' (' + item.createDt + ')'"
+        :name="item.id"
+      >
         <div>
-          {{item.describe}}
+          {{ item.describe }}
         </div>
       </el-collapse-item>
     </el-collapse>
@@ -91,6 +97,7 @@ export default {
       this.$axios
         .post("/admin/bank/queryBankList", queryInfo)
         .then(response => {
+          console.log(response);
           this.tableList = response.data.data;
           this.queryInfo.total = response.data.count;
         });
@@ -115,6 +122,9 @@ export default {
             this.activeList = response.data;
           }
         });
+    },
+    handleSizeChange(val) {
+      this.queryInfo.pageSize = val;
     }
   }
 };
