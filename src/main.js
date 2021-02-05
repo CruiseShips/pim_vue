@@ -8,10 +8,16 @@ import "element-plus/lib/theme-chalk/index.css";
 import "dayjs/locale/zh-cn";
 import locale from "element-plus/lib/locale/lang/zh-cn";
 
+import * as echarts from "echarts";
+
 import axios from "axios";
 import Message from "element-plus/lib/el-message";
 
 const app = createApp(App);
+
+// 引入 Apache Echarts
+// https://echarts.apache.org/zh/tutorial.html#%E5%9C%A8%E6%89%93%E5%8C%85%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BD%BF%E7%94%A8%20ECharts
+app.config.globalProperties.$echarts = echarts;
 
 axios.defaults.baseURL = "http://localhost:8080/";
 // Vue 3 需要使用这个方式进行挂载
