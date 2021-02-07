@@ -88,11 +88,11 @@ export default {
       this.queryInfo.currentPage = val;
       this.getUserList();
     },
-    tableRowClassName({row, rowIndex}) {
+    tableRowClassName({row}) {
       if (row.gender === 1) {
-        return "warning-row";
+        return "man";
       } else if (row.gender === 2) {
-        return "success-row";
+        return "woman";
       }
       return "";
     },
@@ -106,15 +106,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .el-pagination {
   margin-top: 15px;
 }
-.el-table .warning-row {
-  background: oldlace;
+.el-table .man {
+  background: #87cefa;
 }
 
-.el-table .success-row {
-  background: #f0f9eb;
+.el-table .woman {
+  background: #ffc0cb;
 }
 </style>

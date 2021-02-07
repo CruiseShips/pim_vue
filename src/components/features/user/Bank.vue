@@ -97,7 +97,6 @@ export default {
       this.$axios
         .post("/admin/bank/queryBankList", queryInfo)
         .then(response => {
-          console.log(response);
           this.tableList = response.data.data;
           this.queryInfo.total = response.data.count;
         });
