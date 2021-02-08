@@ -62,10 +62,16 @@ export default {
       this.$axios
         .post("/admin/login", { username, password })
         .then(response => {
-          if (response.code && response.code === 200) {
-            let token = response.data;
+          if (response.code === 200) {
+            let token = response.data.token;
             // 将 Token 存入到全局缓存中
             window.sessionStorage.setItem("token", token);
+            // 用户信息
+            const user = {
+              name: response.data.name,
+              img: response.data.img
+            };
+            window.sessionStorage.setItem("user", JSON.stringify(user));
             // 跳转到页面
             this.$router.replace({ path: "/appIndex" });
           }

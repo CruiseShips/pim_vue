@@ -19,7 +19,6 @@ module.exports = {
     hotOnly: false,
     proxy: {
       "/admin": {
-        // 请求称号
         target: "http://127.0.0.1:8080", //请求的接口
         changeOrigin: true, // 允许跨域
         pathRewrite: {

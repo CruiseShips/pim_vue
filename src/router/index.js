@@ -11,6 +11,9 @@ import Bank from "@/components/features/user/Bank";
 // 管理员
 import Manage from "@/components/features/manage/Manage";
 
+// 消息
+import Notice from "@/components/features/notice/Notice";
+
 const routes = [
   {
     path: "/",
@@ -62,6 +65,14 @@ const routes = [
         path: "/manage",
         component: Manage,
         name: "Manage",
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: "/notice",
+        component: Notice,
+        name: "Notice",
         meta: {
           requireAuth: true
         }

@@ -25,6 +25,10 @@
       <i class="el-icon-s-custom"></i>
       <template #title>管理员</template>
     </el-menu-item>
+    <el-menu-item index="/notice">
+      <i class="el-icon-message"></i>
+      <template #title>消息管理</template>
+    </el-menu-item>
     <el-menu-item index="/sys">
       <i class="el-icon-setting"></i>
       <template #title>系统配置</template>
